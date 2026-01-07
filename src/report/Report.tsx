@@ -1,7 +1,7 @@
 function Reports() {
   return (
     <div>
-      <h1>User Management</h1>
+      <h1>Reports Managements</h1>
       <p>This is the Report page.</p>
     </div>
   );

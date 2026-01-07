@@ -1,7 +1,7 @@
 function Settings() {
   return (
     <div>
-      <h1>User Management</h1>
+      <h1>Settings</h1>
       <p>This is the Settings page.</p>
     </div>
   );

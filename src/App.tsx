@@ -15,13 +15,48 @@ function App() {
       <aside className="sidebar">
         <h2 className="logo">Management</h2>
         <ul>
-          <li onClick={() => setActiveMenu("dashboard")}>Dashboard</li>
-          <li onClick={() => setActiveMenu("users")}>Users</li>
-          <li onClick={() => setActiveMenu("member")}>Member</li>
-          <li onClick={() => setActiveMenu("finance")}>Finance</li>
-          <li onClick={() => setActiveMenu("reports")}>Reports</li>
-          <li onClick={() => setActiveMenu("settings")}>Settings</li>
+          <li
+            className={activeMenu === "dashboard" ? "active" : ""}
+            onClick={() => setActiveMenu("dashboard")}
+          >
+            Dashboard
+          </li>
+          <li
+            className={activeMenu === "users" ? "active" : ""}
+            onClick={() => setActiveMenu("users")}
+          >
+            Users
+          </li>
+          <li
+            className={activeMenu === "member" ? "active" : ""}
+            onClick={() => setActiveMenu("member")}
+          >
+            Member
+          </li>
+          <li
+            className={activeMenu === "finance" ? "active" : ""}
+            onClick={() => setActiveMenu("finance")}
+          >
+            Finance
+          </li>
+          <li
+            className={activeMenu === "reports" ? "active" : ""}
+            onClick={() => setActiveMenu("reports")}
+          >
+            Reports
+          </li>
+          <li
+            className={activeMenu === "settings" ? "active" : ""}
+            onClick={() => setActiveMenu("settings")}
+          >
+            Settings
+          </li>
         </ul>
+
+        {/* Logout Button */}
+        <button className="logout-btn" onClick={() => alert("Logged out!")}>
+          Logout
+        </button>
       </aside>
 
       {/* Main Content */}

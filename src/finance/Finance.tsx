@@ -1,8 +1,8 @@
 function Finance() {
   return (
     <div>
-      <h1>User Management</h1>
-      <p>This is the user page.</p>
+      <h1>Finance Management</h1>
+      <p>This is the Finance page.</p>
     </div>
   );
 }
