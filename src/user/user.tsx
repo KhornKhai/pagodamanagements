@@ -65,7 +65,7 @@ function User() {
       <div style={{ display: "flex", alignItems: "center", marginBottom: 15 }}>
         <h1 style={{ marginRight: 860 }}>Users Management</h1>
 
-        <div style={{ marginLeft: "auto", display: "flex", gap: 10 }}>g
+        <div style={{ marginLeft: "auto", display: "flex", gap: 10 }}>
           <input
             type="text"
             placeholder="Search name / email"
