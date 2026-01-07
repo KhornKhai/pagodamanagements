@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import User from "./user/user";
+import Member from "./member/member";
 import Finance from "./finance/Finance";
 import Reports from "./report/Report";
 import Settings from "./settings/Settings";
@@ -16,6 +17,7 @@ function App() {
         <ul>
           <li onClick={() => setActiveMenu("dashboard")}>Dashboard</li>
           <li onClick={() => setActiveMenu("users")}>Users</li>
+          <li onClick={() => setActiveMenu("member")}>Member</li>
           <li onClick={() => setActiveMenu("finance")}>Finance</li>
           <li onClick={() => setActiveMenu("reports")}>Reports</li>
           <li onClick={() => setActiveMenu("settings")}>Settings</li>
@@ -26,6 +28,7 @@ function App() {
       <main className="content">
         {activeMenu === "dashboard" && <h1>Dashboard Overview</h1>}
         {activeMenu === "users" && <User />}
+        {activeMenu === "member" && <Member />}
         {activeMenu === "finance" && <Finance />}
         {activeMenu === "reports" && <Reports />}
         {activeMenu === "settings" && <Settings />}

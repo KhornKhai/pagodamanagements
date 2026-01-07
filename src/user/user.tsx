@@ -4,17 +4,14 @@ interface UserType {
   id: number;
   firstName: string;
   lastName: string;
-  sex: string;
-  date: string;
-  phone: string;
-  address: string;
-  photo?: string;
+  email: string;
+  password: string; // Added password field
 }
 
 function User() {
   const [users, setUsers] = useState<UserType[]>([
-    { id: 1, firstName: "John", lastName: "Doe", sex: "Male", date: "2024-01-01", phone: "1234567890", address: "New York" },
-    { id: 2, firstName: "Jane", lastName: "Smith", sex: "Female", date: "2024-02-01", phone: "9876543210", address: "London" },
+    { id: 1, firstName: "John", lastName: "Doe", email: "john@example.com", password: "123456" },
+    { id: 2, firstName: "Jane", lastName: "Smith", email: "jane@example.com", password: "abcdef" },
   ]);
 
   const [search, setSearch] = useState("");
@@ -22,7 +19,7 @@ function User() {
   const addUser = () => {
     setUsers([
       ...users,
-      { id: Date.now(), firstName: "New", lastName: "User", sex: "Male", date: "2024-03-01", phone: "0000000000", address: "Unknown" },
+      { id: Date.now(), firstName: "New", lastName: "User", email: "newuser@example.com", password: "password" },
     ]);
   };
 
@@ -31,7 +28,7 @@ function User() {
   };
 
   const filteredUsers = users.filter(user =>
-    `${user.firstName} ${user.lastName} ${user.phone} ${user.address}`
+    `${user.firstName} ${user.lastName} ${user.email}`
       .toLowerCase()
       .includes(search.toLowerCase())
   );
@@ -44,7 +41,7 @@ function User() {
       <div style={{ marginBottom: 15 }}>
         <input
           type="text"
-          placeholder="Search name / phone / address"
+          placeholder="Search name / email"
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
@@ -64,11 +61,8 @@ function User() {
               <th>ID</th>
               <th>FName</th>
               <th>LName</th>
-              <th>Sex</th>
-              <th>Date</th>
-              <th>PNumber</th>
-              <th>Address</th>
-              <th>Photo</th>
+              <th>Email</th>
+              <th>Password</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -76,7 +70,7 @@ function User() {
           <tbody>
             {filteredUsers.length === 0 ? (
               <tr>
-                <td colSpan={9} align="center">
+                <td colSpan={6} align="center">
                   No users found
                 </td>
               </tr>
@@ -86,11 +80,8 @@ function User() {
                   <td>{user.id}</td>
                   <td>{user.firstName}</td>
                   <td>{user.lastName}</td>
-                  <td>{user.sex}</td>
-                  <td>{user.date}</td>
-                  <td>{user.phone}</td>
-                  <td>{user.address}</td>
-                  <td>-</td>
+                  <td>{user.email}</td>
+                  <td>*****</td> {/* Masked password */}
                   <td>
                     <button onClick={() => deleteUser(user.id)}>Delete</button>
                   </td>
