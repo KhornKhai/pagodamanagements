@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import User from "./user/user";
 import Member from "./member/member";
+import Absence from "./absence/Absence";
 import Finance from "./finance/Finance";
 import Reports from "./report/Report";
 import Settings from "./settings/Settings";
@@ -34,6 +35,12 @@ function App() {
             Member
           </li>
           <li
+            className={activeMenu === "absence" ? "active" : ""}
+            onClick={() => setActiveMenu("absence")}
+          >
+            Absence
+          </li>
+          <li
             className={activeMenu === "finance" ? "active" : ""}
             onClick={() => setActiveMenu("finance")}
           >
@@ -53,7 +60,6 @@ function App() {
           </li>
         </ul>
 
-        {/* Logout Button */}
         <button className="logout-btn" onClick={() => alert("Logged out!")}>
           Logout
         </button>
@@ -64,6 +70,7 @@ function App() {
         {activeMenu === "dashboard" && <h1>Dashboard Overview</h1>}
         {activeMenu === "users" && <User />}
         {activeMenu === "member" && <Member />}
+        {activeMenu === "absence" && <Absence />}
         {activeMenu === "finance" && <Finance />}
         {activeMenu === "reports" && <Reports />}
         {activeMenu === "settings" && <Settings />}
